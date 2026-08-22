@@ -1,0 +1,49 @@
+generated: '2026-08-22'
+method: probed
+source: https://hackernoon.com/robots.txt (fetched 2026-08-22)
+note: >-
+  HackerNoon publishes no API and therefore no API rate limits. It DOES publish one
+  machine-readable consumption limit — a robots.txt Crawl-delay — and an explicit
+  per-user-agent access policy that functions as the real throttle on automated clients.
+  No X-RateLimit-*, RateLimit-* or Retry-After header was observed on any unauthenticated
+  response from hackernoon.com.
+limit_count: 1
+limits:
+  - scope: per-crawler
+    surface: https://hackernoon.com (whole site, HTML + feeds)
+    window: 10s
+    limit: 1 request per 10 seconds
+    burst: null
+    directive: 'Crawl-delay: 10'
+    binding: advisory
+    note: >-
+      Published in robots.txt. Honored by Bing and Yandex; HackerNoon's own comment notes it
+      is not supported by Google. Advisory only — not enforced by a response code.
+    source: https://hackernoon.com/robots.txt
+response_headers:
+  observed: []
+  note: >-
+    Probed https://hackernoon.com/, /feed and /llms.txt unauthenticated on 2026-08-22.
+    No rate-limit signalling headers of any family were returned.
+exhaustion:
+  status_code: 403
+  note: >-
+    Not a documented rate-limit response. Cloudflare returns a 403 "Just a moment..."
+    interstitial to non-browser clients on several hosts (api., help., brand., terminal.,
+    hackernoon.tech and intermittently on hackernoon.com/p/*). This is bot management, not
+    a published quota, and is recorded here so it is not mistaken for one.
+access_policy:
+  note: >-
+    The binding limit on automated access is categorical, not numeric — robots.txt is
+    default-deny and enumerates who may read at all.
+  default: deny
+  allowed_agent_classes:
+    - search crawlers (Googlebot, Bingbot, YandexBot, DuckDuckBot, Qwantify, Yeti, Sogou, MojeekBot)
+    - AI search/retrieval (ChatGPT-User, OAI-SearchBot, PerplexityBot, Claude-Web, Claude-SearchBot, Claude-User, DuckAssistBot, Amzn-SearchBot, ManusBot)
+    - link-preview bots (facebookexternalhit, FacebookBot, Twitterbot, LinkedInBot, Slackbot, Applebot)
+  denied_agent_classes:
+    - AI training crawlers (GPTBot, Google-Extended, GoogleOther, Google-CloudVertexBot, anthropic-ai, ClaudeBot, CCBot, Meta-ExternalAgent, Amazonbot, Applebot-Extended, cohere-ai, Bytespider, Diffbot, AI2Bot, MistralAI-User, Omgilibot, webzio-extended, YouBot, TerracottaBot)
+  self_declared_gaps:
+    - 'Google-Agent: user-triggered fetcher that ignores robots.txt by design'
+    - 'xAI/Grok: no published user-agent to block'
+    - 'Perplexity secondary crawlers documented as bypassing robots.txt'

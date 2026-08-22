@@ -1,17 +1,36 @@
 aid: hackernoon
 name: Hackernoon
-description: 'Hackernoon is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  HackerNoon is an independent technology publishing platform and community CMS, founded in
+  2016 by David Smooke and headquartered in Edwards, Colorado. It operates a free, open
+  library of more than 150,000 practitioner-authored, human-edited technology stories from
+  35,000+ contributing engineers, covering AI, software engineering, Web3, cybersecurity,
+  startups and science, and serves roughly 3-4 million monthly readers. The company builds
+  and open-sources the publishing software behind the site — the Chowa collaborative editor,
+  the Pixel Icon Library, the HackerNoon pixel font and the Editing Protocol — and monetises
+  through business blogging credits, targeted ads, newsletters and AI content licensing.
+  HackerNoon publishes no public API: probed on 2026-08-22, it serves no OpenAPI, GraphQL,
+  MCP or A2A surface. Its machine-readable surface is a content and AI-access one — an
+  llms.txt, a per-crawler robots.txt policy, RSS feeds and sitemaps — with a "live content
+  feed API" advertised in llms.txt as coming in Q3 2026 and not yet shipped.
+image: https://cdn.hackernoon.com/images/hn.webp
 url: https://raw.githubusercontent.com/api-evangelist/hackernoon/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-22'
 modified: '2026-08-22'
 tags:
 - Company
+- Media
+- Publishing
+- Content
+- Technology
+- Developer Community
+- AI Licensing
+- Open Source
+- Syndication
+- Content Licensing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +38,67 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/hackernoon-domain-security.yml
 - type: Website
+  url: https://hackernoon.com
+- type: Blog
+  url: https://hackernoon.com
+- type: BlogRSS
+  url: https://hackernoon.com/feed
+- type: GitHubOrganization
+  url: https://github.com/hackernoon
+- type: SignUp
+  url: https://hackernoon.com/p/publish
+- type: Pricing
+  url: https://business.hackernoon.com/business-blogging
+- type: TermsOfService
+  url: https://hackernoon.com/terms
+- type: PrivacyPolicy
+  url: https://hackernoon.com/privacy
+- type: StatusPage
+  url: https://status.hackernoon.com
+- type: Support
+  url: https://help.hackernoon.com
+- type: LLMsTxt
+  url: llms/hackernoon-llms.txt
+- type: Packages
+  url: packages/hackernoon-packages.yml
+- type: Components
+  url: components/hackernoon-components.yml
+- type: Conformance
+  url: conformance/hackernoon-conformance.yml
+- type: Lifecycle
+  url: lifecycle/hackernoon-lifecycle.yml
+- type: Plans
+  url: plans/hackernoon-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/hackernoon-rate-limits.yml
+- type: WellKnownProbe
+  url: well-known/hackernoon-well-known.yml
+- type: SecondaryMarketListing
   url: https://www.hiive.com/securities/hackernoon-stock
+x-enrichment:
+  date: '2026-08-22'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    HackerNoon is a publisher, not an API provider — it runs no developer portal and its own
+    llms.txt lists a "Live content feed API" as coming in Q3 2026, so the only machine-readable
+    surfaces are llms.txt, robots.txt, RSS and sitemaps.
+  evidence:
+    - url: https://hackernoon.com/llms.txt
+      status: 200
+    - url: https://hackernoon.com/openapi.json
+      status: 308
+    - url: https://api.hackernoon.com/openapi.json
+      status: 403
+    - url: https://hackernoon.com/.well-known/agent-card.json
+      status: 404
+    - url: https://hackernoon.com/ai-licensing
+      status: 308
+  checked: '2026-08-22'

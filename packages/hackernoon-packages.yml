@@ -1,0 +1,79 @@
+generated: '2026-08-22'
+method: searched
+source: https://www.npmjs.com/org/hackernoon + https://registry.npmjs.org (metadata read 2026-08-22)
+note: >-
+  HackerNoon publishes no API client library, because it publishes no API. The first-party
+  packages below are the open-source PUBLISHING SOFTWARE behind hackernoon.com — an icon set,
+  a markdown editor and a file-upload widget — released under the @hackernoon npm scope and
+  listed on the company's own GitHub organization profile. They are front-end components, NOT
+  SDKs for a HackerNoon API, so this artifact deliberately carries a `Packages` pointer and
+  NO `SDKs` pointer: crediting an SDK count here would assert an API surface that does not exist.
+  npm is the only registry carrying first-party HackerNoon packages; no PyPI, RubyGems,
+  crates.io, NuGet, Maven Central or Go module was found under a HackerNoon namespace.
+packages:
+  - language: javascript
+    registry: npm
+    name: '@hackernoon/pixel-icon-library'
+    url: https://www.npmjs.com/package/@hackernoon/pixel-icon-library
+    install: npm install @hackernoon/pixel-icon-library
+    official: true
+    version: 1.1.0
+    published: '2026-04-13'
+    license: MIT
+    source_code: https://github.com/hackernoon/pixel-icon-library
+    description: >-
+      1,440+ pixel vector icons designed on a 24px grid, four variations per icon.
+      The icon system used across hackernoon.com.
+  - language: javascript
+    registry: npm
+    name: '@hackernoon/rich-markdown-editor'
+    url: https://www.npmjs.com/package/@hackernoon/rich-markdown-editor
+    install: npm install @hackernoon/rich-markdown-editor
+    official: true
+    version: 0.0.34
+    published: '2025-09-30'
+    license: BSD-3-Clause
+    source_code: https://github.com/hackernoon/rich-markdown-editor
+    description: >-
+      React + ProseMirror markdown editor that powers HackerNoon's 3.0 story editor.
+  - language: javascript
+    registry: npm
+    name: '@hackernoon/uppload'
+    url: https://www.npmjs.com/package/@hackernoon/uppload
+    install: npm install @hackernoon/uppload
+    official: true
+    version: 3.2.3
+    published: '2022-11-12'
+    license: MIT
+    source_code: https://github.com/hackernoon/uppload
+    upstream: https://github.com/elninotech/uppload
+    description: >-
+      JavaScript image uploader and editor widget, no backend required. HackerNoon's
+      scoped republication of the upstream Uppload project.
+    note: >-
+      Last published 2022-11-12 — nearly four years stale at the time of this pass, and the
+      repository metadata still points at the upstream elninotech/uppload project.
+registries_checked:
+  - registry: npm
+    result: 3 first-party packages under the @hackernoon scope
+  - registry: pypi
+    result: none under a HackerNoon namespace
+  - registry: rubygems
+    result: none
+  - registry: crates.io
+    result: none
+  - registry: nuget
+    result: none
+  - registry: maven-central
+    result: none
+  - registry: pkg.go.dev
+    result: none
+third_party_wrappers:
+  - language: javascript
+    registry: npm
+    name: '@2hoch1/pixel-icon-library-react'
+    url: https://www.npmjs.com/package/@2hoch1/pixel-icon-library-react
+    official: false
+    version: 2.0.1
+    published: '2026-06-25'
+    note: community React wrapper around the HackerNoon Pixel Icon Library; not published by HackerNoon

@@ -1,0 +1,68 @@
+generated: '2026-08-22'
+method: searched
+source: https://github.com/hackernoon (organization profile README, read 2026-08-22)
+note: >-
+  HackerNoon's developer-facing surface is a set of embeddable/forkable front-end components
+  and design assets rather than an API. Each entry below was read from the company's own
+  GitHub organization profile and its dedicated product site.
+families:
+  - family: icons
+    name: Pixel Icon Library
+    description: >-
+      1,440+ pixel vector icons on a 24px grid, four variations per icon (light, dark,
+      outlined, filled). Distributed as PNG, SVG, an npm package and a Figma community file.
+    site: https://pixeliconlibrary.com
+    repository: https://github.com/hackernoon/pixel-icon-library
+    package: '@hackernoon/pixel-icon-library'
+    license: MIT
+    delivery: [npm, raw-github-assets, figma]
+  - family: editor
+    name: Chowa
+    description: >-
+      Real-time collaborative writing editor built on Quill and integrated with HackerNoon's
+      Editing Protocol. Supports co-authoring, inline comments, formatting and story settings.
+      The editor 50,000+ HackerNoon writers use.
+    site: https://chowa.tech
+    repository: https://github.com/hackernoon/chowa
+    package: null
+    delivery: [source]
+  - family: editor
+    name: Rich Markdown Editor
+    description: >-
+      React + ProseMirror markdown editor that powers HackerNoon's 3.0 story editor.
+    repository: https://github.com/hackernoon/rich-markdown-editor
+    package: '@hackernoon/rich-markdown-editor'
+    license: BSD-3-Clause
+    delivery: [npm, source]
+  - family: upload
+    name: Uppload
+    description: JavaScript image uploader and editor widget, no backend required.
+    repository: https://github.com/hackernoon/uppload
+    package: '@hackernoon/uppload'
+    license: MIT
+    delivery: [npm, source]
+  - family: type
+    name: HackerNoon Font 2.0
+    description: >-
+      HackerNoon's pixel typeface, every character built on a 5x5 grid with curved edges.
+      26 letters, 10 numbers, 31 special characters.
+    site: https://brand.hackernoon.com
+    repository: https://github.com/hackernoon/font
+    delivery: [source]
+  - family: templates
+    name: Tech Company CV
+    description: >-
+      Retro terminal-style company profile template for showcasing products, metrics,
+      leadership, milestones and tech stack.
+    site: https://hackernoon.cv
+    repository: https://github.com/hackernoon/tech-company-cv
+    delivery: [source]
+  - family: metadata
+    name: Emoji Credibility Indicators
+    description: >-
+      Pixelated emoji system communicating content type, editorial status and credibility
+      signals about a story. Part of the Editing Protocol transparency layer.
+    site: https://editingprotocol.com
+    repository: https://github.com/hackernoon/emoji-credibility-indicators
+    delivery: [source]
+loaders: []

@@ -64,5 +64,50 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hackernoon is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/hackernoon-stock
+HackerNoon is an independent technology publishing platform and community CMS, founded in 2016
+by David Smooke and headquartered in Edwards, Colorado. It operates a free library of 150,000+
+practitioner-authored, human-edited technology stories from 35,000+ contributing engineers, and
+open-sources the publishing software behind the site.
+
+## Machine-readable surface (probed 2026-08-22)
+
+**HackerNoon publishes no public API.** No OpenAPI, Swagger, GraphQL, MCP server, A2A agent card,
+gRPC or WSDL contract was found on any HackerNoon-controlled host, including `api.hackernoon.com`.
+Its `llms.txt` advertises a "Live content feed API (coming Q3 2026)" that has not shipped.
+
+What it does publish, and what this profile captured:
+
+| Surface | Where | Status |
+|---|---|---|
+| `llms.txt` | https://hackernoon.com/llms.txt | 200 — saved verbatim to `llms/` |
+| `robots.txt` AI-access policy | https://hackernoon.com/robots.txt | 200 — saved verbatim to `llms/` |
+| RSS 2.0 feeds (site + per tag) | https://hackernoon.com/feed | 200 |
+| Sitemap index (34 sitemaps) | https://hackernoon.com/sitemap.xml | 200 |
+| Status page (Checkly) | https://status.hackernoon.com | 200 |
+| First-party npm packages | `@hackernoon/*` | 3 packages, front-end only |
+| `/.well-known/` documents | all hosts | none — every path 404 |
+
+## Notable findings
+
+- **Three dead pointers inside HackerNoon's own machine-readable discovery documents.**
+  `llms.txt` sends AI licensing traffic to `https://hackernoon.com/ai-licensing` (308 to the site
+  root); `robots.txt` sends it to `https://business.hackernoon.com/ai-licensing` (404) and points
+  at `https://hackernoon.com/llms-full.txt` (308 to the site root). The licensing product is
+  advertised to machines; the pages describing it are gone.
+- **A prose TDM reservation with no machine-readable form.** `llms.txt` reserves rights under
+  Article 4 of EU Directive 2019/790 — the exact reservation TDMRep exists to express — but
+  `/.well-known/tdmrep.json`, `/.well-known/rsl.xml` and `ai.txt` are all absent.
+- **The only published consumption limit is `Crawl-delay: 10`** in robots.txt. No rate-limit
+  response headers of any family were observed.
+- **The @hackernoon npm packages are publishing components, not SDKs** — an icon library, a
+  markdown editor and an upload widget. No `SDKs` pointer is emitted, because there is no API
+  for an SDK to wrap.
+
+## Links
+
+- Website: https://hackernoon.com
+- GitHub organization: https://github.com/hackernoon
+- Business / pricing: https://business.hackernoon.com/business-blogging
+- Help center: https://help.hackernoon.com
+- Status: https://status.hackernoon.com
+- Secondary-market listing: https://www.hiive.com/securities/hackernoon-stock

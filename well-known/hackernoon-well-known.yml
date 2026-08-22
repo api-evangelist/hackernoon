@@ -1,0 +1,93 @@
+generated: '2026-08-22'
+method: probed
+source: live HTTP probes of every HackerNoon-controlled host, 2026-08-22
+note: >-
+  Every /.well-known/ path probed on every HackerNoon host returned 404. No document
+  was fetched and none was saved, so NO WellKnown and NO SecurityTxt pointer is emitted
+  in apis.yml — this file records a measured absence, not a presence.
+  Two hosts (startups.hackernoon.com, terminal.hackernoon.com) are single-page-app
+  catch-alls that answer HTTP 200 with an HTML shell for arbitrary paths; those 200s are
+  recorded as soft_404 and explicitly NOT counted as documents. Three hosts
+  (help., brand., terminal., hackernoon.tech) sit behind a Cloudflare interstitial that
+  returns 403 to a non-browser client on some paths — recorded as challenged, not as dead.
+hit_count: 0
+hosts:
+  - host: https://hackernoon.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+    soft_404_control:
+      path: /.well-known/this-should-not-exist-404test
+      status: 404
+      bytes: 18583
+      note: host returns a genuine 404 for unknown /.well-known/ paths (Next.js 404 page)
+  - host: https://business.hackernoon.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://help.hackernoon.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://brand.hackernoon.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://arweave.hackernoon.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://hackernoon.tech
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://hackernoon.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://editingprotocol.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://startups.hackernoon.com
+    soft_404_control:
+      path: /.well-known/agent-card.json
+      status: 404
+      bytes: 7467725
+      note: SPA catch-all; /llms.txt and /openapi.json both answer 200 with the same HTML shell
+    documents: []
+  - host: https://terminal.hackernoon.com
+    soft_404_control:
+      path: /.well-known/security.txt
+      status: 200
+      bytes: 651
+      note: >-
+        SPA catch-all answering 200 with a 651-byte HTML shell for EVERY path, including
+        /.well-known/agent-card.json. Rejected as a false positive; no document exists.
+    documents: []

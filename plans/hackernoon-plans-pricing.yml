@@ -1,0 +1,58 @@
+generated: '2026-08-22'
+method: searched
+source: https://business.hackernoon.com/business-blogging + https://hackernoon.com/llms.txt (read 2026-08-22)
+note: >-
+  HackerNoon publishes no API, so there are no API plans to record. plan_count is 0 on
+  purpose. The two commercial surfaces a machine could plausibly mistake for API pricing are
+  recorded below with what is and is not published: business blogging packages (a media
+  product, credit-based, only the Enterprise tier is rendered server-side and it is
+  "Custom / Contact Us") and AI content licensing (bundles named in llms.txt with no prices
+  at all). Both are contact-gated.
+plan_count: 0
+api_plans: []
+adjacent_commercial_surfaces:
+  - name: Business Blogging credits
+    url: https://business.hackernoon.com/business-blogging
+    status: 200
+    model: prepaid credits, 1 credit per accepted sponsored story
+    published_tiers:
+      - name: Enterprise
+        price: Custom
+        currency: null
+        billing_period: null
+        included:
+          - 200+ posts
+          - priority editorial review
+          - blockchain backup (free)
+          - story audio (free)
+          - 12-language pack (free)
+          - custom language mega-pack
+          - custom canonical linkback
+          - custom homepage placement
+          - custom 400+ PR pickups
+          - managed account
+        cta: Contact Us
+    note: >-
+      The lower-tier package table is rendered client-side and returns no prices to a
+      non-browser fetch; only the Enterprise column and a Stripe-secured order summary are
+      present in the served HTML. No numeric price is published server-side. The /shop path
+      (HTTP 200) is physical merchandise, not a plan.
+  - name: AI content licensing
+    url: https://hackernoon.com/ai-licensing
+    status: 308
+    model: contact sales (partners@hackernoon.com)
+    published_tiers:
+      - name: Topic-filtered bundles
+        price: null
+        included: 1,000 articles by tag/category
+      - name: Category archives
+        price: null
+        included: AI, Engineering, Web3, Cybersecurity, Startups, Science
+      - name: Full corpus
+        price: null
+        included: 150,000+ articles, structured JSONL
+    note: >-
+      These bundles are enumerated in llms.txt, but the licensing page llms.txt points at
+      (https://hackernoon.com/ai-licensing) 308-redirects to the site root, and the variant
+      robots.txt points at (https://business.hackernoon.com/ai-licensing) returns 404. The
+      product is advertised to machines; the page describing it is gone.

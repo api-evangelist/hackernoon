@@ -1,0 +1,136 @@
+generated: '2026-08-22'
+method: probed
+source: live probes of hackernoon.com and its sibling hosts, 2026-08-22
+note: >-
+  HackerNoon publishes no API contract, so every API-shaped standard below is recorded as
+  not conformed on evidence of absence rather than assumed. What HackerNoon DOES publish is a
+  content-syndication and AI-access surface, and that is where its real standards conformance
+  sits: robots.txt (RFC 9309), RSS 2.0, sitemaps.org 0.9 and the llms.txt convention.
+conformance:
+  - id: robots-exclusion-protocol
+    name: Robots Exclusion Protocol (RFC 9309)
+    conforms: true
+    evidence:
+      url: https://hackernoon.com/robots.txt
+      status: 200
+      detail: >-
+        4,959-byte robots.txt, "Last updated: April 30, 2026". Default-deny (`User-agent: *`
+        / `Disallow: /`) with an explicit per-crawler allowlist of 18 search and AI-retrieval
+        agents and an explicit denylist of 20 AI-training agents, plus `Crawl-delay: 10`
+        and a `Sitemap:` directive. Saved verbatim to llms/hackernoon-robots.txt.
+  - id: llms-txt
+    name: llms.txt convention
+    conforms: true
+    evidence:
+      url: https://hackernoon.com/llms.txt
+      status: 200
+      detail: >-
+        4,884-byte markdown llms.txt served as text/plain, with H1 + blockquote summary,
+        key-URL section, permitted/prohibited AI use, citation format and licensing contact.
+        Saved verbatim to llms/hackernoon-llms.txt.
+  - id: rss-2.0
+    name: RSS 2.0
+    conforms: true
+    evidence:
+      url: https://hackernoon.com/feed
+      status: 200
+      detail: >-
+        application/rss+xml, 881KB, `<rss>` with the dc: and content: namespaces. Per-tag
+        feeds are served at the same shape (e.g. /tagged/api/feed, HTTP 200).
+  - id: sitemaps-0.9
+    name: sitemaps.org protocol 0.9
+    conforms: true
+    evidence:
+      url: https://hackernoon.com/sitemap.xml
+      status: 200
+      detail: >-
+        Valid `<sitemapindex>` in the sitemaps.org/schemas/sitemap/0.9 namespace, indexing
+        32 paginated sitemaps plus a startups and a skills sitemap.
+  - id: security-txt
+    name: RFC 9116 security.txt
+    conforms: false
+    evidence:
+      url: https://hackernoon.com/.well-known/security.txt
+      status: 404
+      detail: >-
+        Not served on any HackerNoon host. HackerNoon does run a Bug Bounty Program
+        (github.com/hackernoon/bug-bounty-champions), so the disclosure channel exists but
+        is not machine-discoverable.
+  - id: openapi
+    name: OpenAPI
+    conforms: false
+    evidence:
+      url: https://hackernoon.com/openapi.json
+      status: 308
+      detail: >-
+        308-redirects to the site root, as do all unknown top-level paths. No OpenAPI or
+        Swagger document was found on any HackerNoon host or on api.hackernoon.com.
+  - id: graphql
+    name: GraphQL
+    conforms: false
+    evidence:
+      url: https://api.hackernoon.com/graphql
+      status: 403
+      detail: >-
+        api.hackernoon.com answers every path with a Cloudflare interstitial (403). No
+        GraphQL endpoint is documented anywhere on HackerNoon's public surface.
+  - id: mcp
+    name: Model Context Protocol
+    conforms: false
+    evidence:
+      url: https://hackernoon.com/llms.txt
+      status: 200
+      detail: >-
+        No MCP server is published or referenced. The llms.txt states a "Live content feed
+        API (coming Q3 2026)" as forthcoming, not shipped.
+  - id: a2a-agent-card
+    name: A2A Agent Card
+    conforms: false
+    evidence:
+      url: https://hackernoon.com/.well-known/agent-card.json
+      status: 404
+      detail: Probed on all ten HackerNoon-controlled hosts, both canonical and legacy paths. No card.
+  - id: oauth2
+    name: OAuth 2.0 / OIDC
+    conforms: false
+    evidence:
+      url: https://hackernoon.com/.well-known/openid-configuration
+      status: 404
+      detail: No authorization-server or OIDC discovery document on any host.
+domain_standards:
+  note: >-
+    REWARD-ONLY and NOT awarded. HackerNoon's market — tech publishing and AI content
+    licensing — does now have machine-readable opt-out standards, and HackerNoon asserts the
+    underlying legal reservation in prose while implementing none of them. Recorded here as a
+    measured gap, not as conformance.
+  standards:
+    - id: tdmrep
+      name: TDM Reservation Protocol (/.well-known/tdmrep.json)
+      conforms: false
+      evidence:
+        url: https://hackernoon.com/.well-known/tdmrep.json
+        status: 404
+        detail: >-
+          llms.txt states "Rights reserved under Article 4 of the European Union Directive
+          2019/790" — the exact reservation TDMRep exists to express machine-readably — but
+          no tdmrep.json is served.
+    - id: rsl
+      name: Really Simple Licensing (RSL)
+      conforms: false
+      evidence:
+        url: https://hackernoon.com/.well-known/rsl.xml
+        status: 404
+        detail: >-
+          No RSL document and no `License:` directive in robots.txt, despite robots.txt
+          carrying a licensing URL in a comment line that machines do not read.
+    - id: ai-txt
+      name: ai.txt
+      conforms: false
+      evidence:
+        url: https://hackernoon.com/ai.txt
+        status: 200
+        detail: >-
+          200 but the body is the site's HTML homepage shell (303,672 bytes, text/html),
+          not an ai.txt document. Rejected as a soft-404.
+certifications: []
+compliance_programs: []

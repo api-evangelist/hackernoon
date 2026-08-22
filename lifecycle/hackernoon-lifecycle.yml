@@ -1,0 +1,54 @@
+generated: '2026-08-22'
+method: probed
+source: live probes of hackernoon.com, status.hackernoon.com and business.hackernoon.com, 2026-08-22
+note: >-
+  There is no API, so there is no API versioning, deprecation or sunset policy to record.
+  What HackerNoon does operate is a public uptime dashboard, and one dated forward-looking
+  commitment published to machines in llms.txt.
+status_page:
+  present: true
+  url: https://status.hackernoon.com
+  status: 200
+  vendor: Checkly (checkly-dashboards.com)
+  rendering: client-side
+  note: >-
+    Real, provider-operated status dashboard. The served HTML is a 1,223-byte Nuxt shell
+    whose inline config points at api.checklyhq.com, so the incident history renders only in
+    a browser; the page itself is genuinely served by HackerNoon on its own subdomain.
+versioning:
+  scheme: none-published
+  current_version: null
+  note: No API, no version scheme, no version header or path segment on any public surface.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No deprecation or sunset policy is published, and no RFC 8594 Sunset/Deprecation headers
+    were observed. The company DOES retire surfaces without notice: llms.txt still advertises
+    https://hackernoon.com/ai-licensing, which 308-redirects to the site root, and robots.txt
+    still advertises https://hackernoon.com/llms-full.txt (308 to root) and
+    https://business.hackernoon.com/ai-licensing (404).
+sla:
+  published: false
+  url: null
+deprecated_operations: []
+archival:
+  arweave:
+    url: https://arweave.hackernoon.com
+    status: 403
+    note: >-
+      HackerNoon publishes immutable story backups to the Arweave permaweb, per its GitHub
+      organization profile. The subdomain answers a Cloudflare interstitial to non-browser
+      clients, so the surface was not readable in this pass.
+roadmap:
+  published: false
+  forward_commitments:
+    - item: Live content feed API
+      target: Q3 2026
+      source: https://hackernoon.com/llms.txt
+      status: not shipped as of 2026-08-22
+      note: >-
+        The only dated API commitment HackerNoon has published. It appears in llms.txt under
+        "What's available" for AI licensing, addressed to machines rather than on a roadmap page.
