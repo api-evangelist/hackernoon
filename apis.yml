@@ -13,6 +13,17 @@ description: >-
   MCP or A2A surface. Its machine-readable surface is a content and AI-access one — an
   llms.txt, a per-crawler robots.txt policy, RSS feeds and sitemaps — with a "live content
   feed API" advertised in llms.txt as coming in Q3 2026 and not yet shipped.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.hackernoon.com/images/hn.webp
 url: https://raw.githubusercontent.com/api-evangelist/hackernoon/refs/heads/main/apis.yml
 x-type: company
