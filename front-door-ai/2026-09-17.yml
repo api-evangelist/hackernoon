@@ -1,0 +1,30 @@
+# Front Door AI Index — hackernoon — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: hackernoon
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: hackernoon.com
+  final_host: hackernoon.com
+  ownership: own
+  owner: hackernoon
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 19
+  host_score: 19
+  density: 26.91
+  words: 706
+  tiers:
+    agentic: 3
+    core: 15
+    model: 1
+  ambiguous: 4
+  top_terms:
+    AI: 14
+    agent: 4
+    AI agent: 2
+    Claude: 1
+    LLMs: 1
+    agentic: 1
