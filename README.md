@@ -64,50 +64,99 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-HackerNoon is an independent technology publishing platform and community CMS, founded in 2016
-by David Smooke and headquartered in Edwards, Colorado. It operates a free library of 150,000+
-practitioner-authored, human-edited technology stories from 35,000+ contributing engineers, and
-open-sources the publishing software behind the site.
+HackerNoon is an independent technology publishing platform and community CMS, founded in 2016 by David Smooke and headquartered in Edwards, Colorado. It operates a free, open library of more than 150,000 practitioner-authored, human-edited technology stories from 35,000+ contributing engineers, covering AI, software engineering, Web3, cybersecurity, startups and science, and serves roughly 3-4 million monthly readers. The company builds and open-sources the publishing software behind the site — the Chowa collaborative editor, the Pixel Icon Library, the HackerNoon pixel font and the Editing Protocol — and monetises through business blogging credits, targeted ads, newsletters and AI content licensing. HackerNoon publishes no public API: probed on 2026-08-22, it serves no OpenAPI, GraphQL, MCP or A2A surface. Its machine-readable surface is a content and AI-access one — an llms.txt, a per-crawler robots.txt policy, RSS feeds and sitemaps — with a "live content feed API" advertised in llms.txt as coming in Q3 2026 and not yet shipped.
 
-## Machine-readable surface (probed 2026-08-22)
+**Areas:** Company · Media · Publishing · Content · Technology · Developer Community · AI Licensing · Open Source · Syndication · Content Licensing
 
-**HackerNoon publishes no public API.** No OpenAPI, Swagger, GraphQL, MCP server, A2A agent card,
-gRPC or WSDL contract was found on any HackerNoon-controlled host, including `api.hackernoon.com`.
-Its `llms.txt` advertises a "Live content feed API (coming Q3 2026)" that has not shipped.
+## Hackernoon on APIs.io
 
-What it does publish, and what this profile captured:
+Everything profiled for Hackernoon is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hackernoon/](https://apis.io/providers/hackernoon/)** — or go straight to one of the APIs or properties below.
 
-| Surface | Where | Status |
-|---|---|---|
-| `llms.txt` | https://hackernoon.com/llms.txt | 200 — saved verbatim to `llms/` |
-| `robots.txt` AI-access policy | https://hackernoon.com/robots.txt | 200 — saved verbatim to `llms/` |
-| RSS 2.0 feeds (site + per tag) | https://hackernoon.com/feed | 200 |
-| Sitemap index (34 sitemaps) | https://hackernoon.com/sitemap.xml | 200 |
-| Status page (Checkly) | https://status.hackernoon.com | 200 |
-| First-party npm packages | `@hackernoon/*` | 3 packages, front-end only |
-| `/.well-known/` documents | all hosts | none — every path 404 |
+### Published properties
 
-## Notable findings
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Three dead pointers inside HackerNoon's own machine-readable discovery documents.**
-  `llms.txt` sends AI licensing traffic to `https://hackernoon.com/ai-licensing` (308 to the site
-  root); `robots.txt` sends it to `https://business.hackernoon.com/ai-licensing` (404) and points
-  at `https://hackernoon.com/llms-full.txt` (308 to the site root). The licensing product is
-  advertised to machines; the pages describing it are gone.
-- **A prose TDM reservation with no machine-readable form.** `llms.txt` reserves rights under
-  Article 4 of EU Directive 2019/790 — the exact reservation TDMRep exists to express — but
-  `/.well-known/tdmrep.json`, `/.well-known/rsl.xml` and `ai.txt` are all absent.
-- **The only published consumption limit is `Crawl-delay: 10`** in robots.txt. No rate-limit
-  response headers of any family were observed.
-- **The @hackernoon npm packages are publishing components, not SDKs** — an icon library, a
-  markdown editor and an upload widget. No `SDKs` pointer is emitted, because there is no API
-  for an SDK to wrap.
+#### Security (1)
 
-## Links
+Authentication, trust centre, and vulnerability disclosure.
 
-- Website: https://hackernoon.com
-- GitHub organization: https://github.com/hackernoon
-- Business / pricing: https://business.hackernoon.com/business-blogging
-- Help center: https://help.hackernoon.com
-- Status: https://status.hackernoon.com
-- Secondary-market listing: https://www.hiive.com/securities/hackernoon-stock
+- [Hackernoon Domain Security](https://apis.io/security/hackernoon/hackernoon-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Hackernoon Plans Pricing](https://apis.io/plans/hackernoon/hackernoon-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Hackernoon Rate Limits](https://apis.io/rate-limits/hackernoon/hackernoon-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://hackernoon.com)
+- [Pricing](https://business.hackernoon.com/business-blogging)
+- [Sign up](https://hackernoon.com/p/publish)
+- [Support](https://help.hackernoon.com)
+- [Blog](https://hackernoon.com)
+- [Terms of service](https://hackernoon.com/terms)
+- [Privacy policy](https://hackernoon.com/privacy)
+- [GitHub](https://github.com/hackernoon)
+- [Status](https://status.hackernoon.com)
+
+## API Evangelist rating
+
+**Kin Score 17.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 4.8 |
+| Access clarity | 21.1 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 14.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hackernoon/](https://apis.io/providers/hackernoon/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Hackernoon: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hackernoon/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
